@@ -1,0 +1,22 @@
+@echo off
+
+:PARAMETROS
+SET /A CONTADOR= 0
+SET /A ERRO= 1
+:BEGIN
+
+SET /A CONTADOR=%CONTADOR%+1
+ECHO contador %CONTADOR%
+IF %CONTADOR%==10 (
+GOTO STATUS_HORA )
+
+GOTO BEGIN
+
+:STATUS_HORA
+IF %ERRO%==0 (
+ECHO " Ate %DATE% %TIME% | Sem erros # ") ELSE (
+ECHO " Ate %DATE% %TIME% | %ERRO% erros de %CONTADOR% ")
+
+
+pause
+GOTO PARAMETROS
